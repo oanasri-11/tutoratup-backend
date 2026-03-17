@@ -2,7 +2,7 @@ from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from app.database.database import Base
-from app.models.users import User
+from app.models.association_student_session import student_session
 class Session(Base):
   __tablename__="sessions"
   id=Column(Integer,primary_key=True,index=True)

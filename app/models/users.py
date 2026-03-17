@@ -1,9 +1,6 @@
 from sqlalchemy import Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
 from app.database.database import Base
 from sqlalchemy import ForeignKey
-
-Base=declarative_base()
 
 class User(Base):
   __tablename__="users"
@@ -18,7 +15,7 @@ class User(Base):
   # This 'type' column tells SQLAlchemy how to handle inheritance
   type = Column(String)
 
-__mapper_args__ = {
+  __mapper_args__ = {
         "polymorphic_identity": "user",
         "polymorphic_on": type,
     }

@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, relationship
+from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 from app.database.database import Base
 from app.models.users import User

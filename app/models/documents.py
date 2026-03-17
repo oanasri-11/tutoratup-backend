@@ -1,8 +1,9 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String,ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from app.database.database import Base
 from app.models.users import User
+from app.models.association_student_document import student_document
 class Document(Base):
   __tablename__="documents"
   id=Column(Integer,primary_key=True,index=True)

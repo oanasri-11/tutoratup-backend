@@ -7,13 +7,11 @@ from sqlalchemy.orm  import relationship
 
 class Parent(User):
   __tablename__="parents"
-  id=Column(Integer,primary_key=True,index=True)
+  id=Column(Integer, ForeignKey('users.id'), primary_key=True)
   referent_children=Column(String)
   
-  students=relationship("Student", back_populates="parent")
+  students=relationship("Student", back_populates="parent", foreign_keys="Student.parent_id")
 
-
-  
-__mapper_args__ = {
+  __mapper_args__ = {
         'polymorphic_identity': 'parent',
     }

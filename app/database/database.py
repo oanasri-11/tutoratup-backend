@@ -1,8 +1,9 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
 # SQLite connection (file will be created automatically)
-SQLALCHEMY_DATABASE_URL = "sqlite:///./mydatabase.db"  
+SQLALCHEMY_DATABASE_URL = "sqlite:///./tutoratup.db"  
 
 # Create engine
 engine = create_engine(
