@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Float, Integer, String
+from sqlalchemy import Column, Float, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 from app.database.database import Base
 from app.models.users import User
 class Evaluation(Base):
@@ -8,4 +9,6 @@ class Evaluation(Base):
   comment=Column(String)
   date=Column(String)
   note=Column(Float)
+  teacher_id=Column(Integer,ForeignKey('teachers.id'))
+  teacher=relationship("Teacher", back_populates="evaluations")
   

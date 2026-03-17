@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String,Float
+from sqlalchemy import Column, Integer, String,Float,ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 from app.database.database import Base
 from app.models.users import User
 class Quote(Base):
@@ -11,3 +12,5 @@ class Quote(Base):
   budget=Column(Float)
   subject=Column(String)
   level=Column(String)
+  teacher_id=Column(Integer,ForeignKey('teachers.id'))
+  teacher=relationship("Teacher", back_populates="quotes")

@@ -2,12 +2,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # SQLite connection (file will be created automatically)
-SQLALCHEMY_DATABASE_URL = "sqlite:///./mydatabase.db"  # relative path to your project
+SQLALCHEMY_DATABASE_URL = "sqlite:///./mydatabase.db"  
 
 # Create engine
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, 
-    connect_args={"check_same_thread": False}  # needed for SQLite
+    connect_args={"check_same_thread": False} 
 )
 
 # Session maker
@@ -24,7 +24,7 @@ def get_db():
     finally:
         db.close()
 
-# Test connection (optional)
+# Test connection 
 if __name__ == "__main__":
     try:
         connection = engine.connect()

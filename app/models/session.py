@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 from app.database.database import Base
 from app.models.users import User
 class Session(Base):
@@ -9,3 +10,6 @@ class Session(Base):
   end_hour=Column(String)
   status=Column(String)
   date=Column(String)
+  session_id=Column(String,ForeignKey('services.id'))
+  service=relationship("Service", back_populates="sessions")
+  documents=relationship("Document", back_populates="session")

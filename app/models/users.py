@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from app.database.database import Base
+from sqlalchemy import ForeignKey
 
 Base=declarative_base()
 

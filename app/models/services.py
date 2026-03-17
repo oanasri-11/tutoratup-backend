@@ -1,5 +1,6 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 from app.database.database import Base
 from app.models.users import User
 class Service(Base):
@@ -9,5 +10,8 @@ class Service(Base):
   approximate_price=Column(Integer)
   level=Column(String)
   name=Column(String)
+  session=relationship("Session", back_populates="service")
+  teacher_id=Column(Integer,ForeignKey('teachers.id'))
+  teacher=relationship("Teacher", back_populates="services")
 
 
