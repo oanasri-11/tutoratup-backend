@@ -11,6 +11,10 @@ class Student(User):
   parent_id=Column(Integer, ForeignKey('parents.id'))
   parent=relationship("Parent", back_populates="students")
   teacher=relationship("Teacher",secondary=teacher_student, back_populates="students")
+  quotes=relationship("Quote",secondary=student_quote, back_populates="students")
+  sessions=relationship("Session",secondary=student_session, back_populates="students")
+  services=relationship("Service", secondary=student_service, back_populates="students")
+  documents=relationship("Document", secondary=student_document, back_populates="students")
 
 __mapper_args__ = {
         'polymorphic_identity': 'Student',

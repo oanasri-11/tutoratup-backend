@@ -13,5 +13,6 @@ class Service(Base):
   session=relationship("Session", back_populates="service")
   teacher_id=Column(Integer,ForeignKey('teachers.id'))
   teacher=relationship("Teacher", back_populates="services")
+  students=relationship("Student", secondary=student_session, back_populates="services")
 
 

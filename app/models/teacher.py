@@ -14,11 +14,14 @@ class Teacher(User):
   nature=Column(String)
   domain=Column(String)
   quotes=relationship("Quote", back_populates="teacher")
-  teachers=relationship("Service", back_populates="teacher")
+  services=relationship("Service", back_populates="teacher")
+  sessions=relationship("Session", back_populates="teacher")
   subject_id=Column(Integer,ForeignKey('subjects.id'))
   subject=relationship("Subject", back_populates="teachers")
   evaluations=relationship("Evaluation", back_populates="teacher")
   students=relationship("Student",secondary=teacher_student, back_populates="teacher")
+  teachinglevel_id=Column(Integer,ForeignKey('teachinglevels.id'))
+  teachinglevel=relationship("TeachingLevel", back_populates="teachers")
 
 __mapper_args__ = {
         'polymorphic_identity': 'Teacher',

@@ -11,4 +11,5 @@ class Document(Base):
   date=Column(String)
   session_id=Column(Integer,ForeignKey('sessions.id'))
   session=relationship("Session", back_populates="documents")
+  students=relationship("Student", secondary=student_document, back_populates="documents")
   
