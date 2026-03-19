@@ -10,7 +10,7 @@ class User(Base):
   email=Column(String, unique=True, index=True)
   Phone_number=Column(Integer)
   Postal_Adress=Column(String)
-  role=Column(String)
+  #role=Column(String)
 
   # This 'type' column tells SQLAlchemy how to handle inheritance
   type = Column(String)

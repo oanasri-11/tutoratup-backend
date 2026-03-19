@@ -1,6 +1,5 @@
-from app.database.database import SessionLocal, get_db
 from app.database.database import engine, Base
-# Import all models here to register them with Base
+from app.database.database import SessionLocal
 from app.models.users import User
 from app.models.teacher import Teacher
 from app.models.students import Student
@@ -21,16 +20,30 @@ from app.models.association_student_quote import student_quote
 # Create all tables
 Base.metadata.create_all(bind=engine)
 print("Database and tables created successfully!")
-get_db()  # Initialize the database connection
 session=SessionLocal()
+#never create user automatically, only parent ,student or teacher
+s5=Student (
+
+First_name="John",
+Last_name="Doe",
+email="john.doe@example.com",
+Phone_number="1234567890"
 
 
-# 7. Link Teacher ↔ Students (Many-to-Many)
 
-
-# 8. Save everything
-session.add_all([t1, s1, s2, p1])
+)
+session.add(s5)
 session.commit()
+
+
+
+
+
+
+
+
+
+
 
 
 print("Data inserted successfully!")
