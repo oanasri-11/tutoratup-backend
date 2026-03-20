@@ -6,7 +6,7 @@ class StudentBase(UserBase):
 class StudentCreate(StudentBase):
   password:str
   confirm_password:str
-  educationa_level:str
+  educational_level:str
   fullname:str
 class StudentOut(StudentBase):
   id:int

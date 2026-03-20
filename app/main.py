@@ -16,24 +16,34 @@ from app.models.association_teacher_student import teacher_student
 from app.models.association_student_service import student_service
 from app.models.association_student_session import student_session
 from app.models.association_student_quote import student_quote
+from app.schemas.users import UserCreate
+from app.schemas.teacher import TeacherCreate 
+from app.schemas.students import StudentCreate
+from app.schemas.parents import ParentCreate
+from app.schemas.session import SessionCreate
+from app.schemas.services import ServiceCreate
+from app.schemas.quotes import QuoteCreate
+from app.schemas.evaluation import EvaluationCreate
+from app.schemas.subject import SubjectCreate
+from app.schemas.teachinglevels import teachingLevelCreate
+from app.schemas.documents import DocumentCreate
+
 
 # Create all tables
-Base.metadata.create_all(bind=engine)
-print("Database and tables created successfully!")
-session=SessionLocal()
+#Base.metadata.create_all(bind=engine)
+#print("Database and tables created successfully!")
+#session=SessionLocal()
 #never create user automatically, only parent ,student or teacher
-s5=Student (
-
-First_name="John",
-Last_name="Doe",
-email="john.doe@example.com",
-Phone_number="1234567890"
-
-
-
-)
-session.add(s5)
-session.commit()
+print ("Testing pydantic without database !!!!!!!!")
+data ={
+    "email":"testeexample",
+    "password":"testpassword",
+    "fullname":"59988989889",
+    "confirm_password":"testpassword",
+}
+    
+student=StudentCreate(**data)
+print(student)
 
 
 
@@ -42,11 +52,7 @@ session.commit()
 
 
 
-
-
-
-
-print("Data inserted successfully!")
+    
 
 
 
